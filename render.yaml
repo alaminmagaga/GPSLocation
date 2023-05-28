@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: mysite
+    name: GPS Tracker
     env: python
     buildCommand: "./build.sh"
     startCommand: "gunicorn GPSLocation.wsgi:application"
