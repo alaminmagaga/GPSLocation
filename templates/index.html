@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +57,8 @@
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
     </div>
-    <div class="w3-center"><h1><b>Live Tracking System with ESP32</b></h1></div>
+    <div class="w3-center"><h1><b>Vehicle Tracking System</b></h1></div>
+    <div class="w3-container w3-center"> <img src="{% static 'track.jpg' %}" width="70%" alt=""></div>
     <div class="container">
         <div class="box">
             <div id="project-details" class="w3-container">
@@ -98,9 +100,10 @@
                 </div>
             </div>
             <br>
-            <iframe src="http://192.168.150.193/"></iframe>
+            <iframe src=""></iframe>
         </div>
     </div>
+    i deployed my django app to render platform but i got this error:
 
     <script>
         function toggleDetails() {
