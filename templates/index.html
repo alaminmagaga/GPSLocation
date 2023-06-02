@@ -3,6 +3,34 @@
 <html>
 <head>
     <title>Web Server Content</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHNUG9E870MPZ38LzijxoPyPgtiUFYjTM"></script>
+    <script>
+        function initMap() {
+            // Get the latitude and longitude from the context data passed by the Django view
+            var latitude = {{ latitude }};
+            var longitude = {{ longitude }};
+            
+            // Create a LatLng object with the latitude and longitude
+            var location = { lat: latitude, lng: longitude };
+            
+            // Create a map centered at the location
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: location
+            });
+            
+            // Add a marker at the location
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: 'Current Location'
+            });
+            
+            // Display the latitude and longitude
+            var latLngDiv = document.getElementById('latLng');
+            latLngDiv.innerHTML = 'Latitude: ' + latitude + '<br>Longitude: ' + longitude;
+        }
+    </script>
     <style>
         body {
             margin: 0;
@@ -13,6 +41,10 @@
         .navbar {
             background-color: #333;
             overflow: hidden;
+        }
+
+        #map {
+            height: 400px;
         }
         
         .navbar a {
@@ -50,7 +82,8 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body>
+<body onload="initMap()">
+   
     <div class="navbar">
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -100,11 +133,10 @@
                 </div>
             </div>
             <br>
-            <iframe src=""></iframe>
+            <div id="map"></div>
+            <div id="latLng"></div>
         </div>
     </div>
-    i deployed my django app to render platform but i got this error:
-
     <script>
         function toggleDetails() {
             var details = document.getElementById("projectDetails");
