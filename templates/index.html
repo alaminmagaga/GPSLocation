@@ -3,32 +3,24 @@
 <html>
 <head>
     <title>Web Server Content</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHNUG9E870MPZ38LzijxoPyPgtiUFYjTM"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACHwvxhQhSEjvXpjGkYWZDKsybBdfHB2k"></script>
     <script>
         function initMap() {
-            // Get the latitude and longitude from the context data passed by the Django view
-            var latitude = {{ latitude }};
-            var longitude = {{ longitude }};
+            var latitude = "{{ latitude }}";
+            var longitude = "{{ longitude }}";
             
-            // Create a LatLng object with the latitude and longitude
-            var location = { lat: latitude, lng: longitude };
+            var location = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
             
-            // Create a map centered at the location
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 15,
                 center: location
             });
             
-            // Add a marker at the location
             var marker = new google.maps.Marker({
                 position: location,
                 map: map,
-                title: 'Current Location'
+                title: 'Coordinates: ' + latitude + ', ' + longitude
             });
-            
-            // Display the latitude and longitude
-            var latLngDiv = document.getElementById('latLng');
-            latLngDiv.innerHTML = 'Latitude: ' + latitude + '<br>Longitude: ' + longitude;
         }
     </script>
     <style>
@@ -134,7 +126,6 @@
             </div>
             <br>
             <div id="map"></div>
-            <div id="latLng"></div>
         </div>
     </div>
     <script>
@@ -149,3 +140,6 @@
     </script>
 </body>
 </html>
+
+
+

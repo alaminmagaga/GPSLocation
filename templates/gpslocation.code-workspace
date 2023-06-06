@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "ESP 32 Firebase",
+			"path": "../../Documents/PlatformIO/Projects/ESP 32 Firebase"
+		}
+	],
+	"settings": {}
+}
